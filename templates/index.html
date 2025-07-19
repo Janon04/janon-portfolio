@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="profile">
+    <div class="profile-header">
+        <div class="profile-info">
+            <h2>Profile</h2>
+            <p>{{ personal_info.profile }}</p>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><i class="fas fa-envelope"></i> {{ personal_info.email }}</p>
+            <p><i class="fas fa-phone"></i> {{ personal_info.phone }}</p>
+            <p><i class="fas fa-map-marker-alt"></i> {{ personal_info.address }}</p>
+            <p><i class="fas fa-birthday-cake"></i> {{ personal_info.dob }}</p>
+            <p><i class="fas fa-passport"></i> {{ personal_info.nationality }}</p>
+            <p><i class="fas fa-user"></i> {{ personal_info.marital_status }}</p>
+            <p><i class="fas fa-venus-mars"></i> {{ personal_info.gender }}</p>
+        </div>
+
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <div class="skills-container">
+                <div class="skills-column">
+                    <ul>
+                        {% for skill in skills.left %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="skills-column">
+                    <ul>
+                        {% for skill in skills.right %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="languages-interests">
+        <div class="languages">
+            <h3>Languages</h3>
+            <ul>
+                {% for language in languages %}
+                <li>{{ language.name }} - {{ language.level }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="interests">
+            <h3>Interests</h3>
+            <ul>
+                {% for interest in interests %}
+                <li>{{ interest }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

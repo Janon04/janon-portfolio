@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="experience">
+    <h2>Professional Experience</h2>
+    
+    {% for exp in experiences %}
+    <div class="experience-item">
+        <div class="experience-header">
+            <h3>{{ exp.position }}</h3>
+            <p class="company">{{ exp.company }}</p>
+            <p class="period">{{ exp.period }}</p>
+            {% if exp.location %}
+            <p class="location">{{ exp.location }}</p>
+            {% endif %}
+        </div>
+        <div class="experience-description">
+            <p>{{ exp.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

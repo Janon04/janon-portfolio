@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="education">
+    <h2>Education</h2>
+    
+    {% for edu in education %}
+    <div class="education-item">
+        <div class="education-header">
+            <h3>{{ edu.degree }}</h3>
+            <p class="institution">{{ edu.institution }}</p>
+            <p class="period">{{ edu.period }}</p>
+            {% if edu.location %}
+            <p class="location">{{ edu.location }}</p>
+            {% endif %}
+        </div>
+        <div class="education-description">
+            <p>{{ edu.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="references">
+        <h3>References</h3>
+        <div class="references-container">
+            {% for ref in references %}
+            <div class="reference-item">
+                <h4>{{ ref.name }}</h4>
+                <p>{{ ref.position }}</p>
+                <p>{{ ref.company }}</p>
+                <p>{{ ref.contact }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
